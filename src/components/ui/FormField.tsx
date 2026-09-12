@@ -47,7 +47,11 @@ export function FormField(props: InputFieldProps | TextareaFieldProps) {
 }
 
 function omitCommon<T extends CommonProps>(props: T) {
-  const { label: _label, name: _name, required: _required, className: _className, as: _as, ...rest } =
-    props as T & { as?: string };
+  const rest = { ...props } as Partial<T> & { as?: string };
+  delete rest.label;
+  delete rest.name;
+  delete rest.required;
+  delete rest.className;
+  delete rest.as;
   return rest;
 }

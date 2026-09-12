@@ -32,3 +32,18 @@ export type Service = {
   faqs: Faq[];
   seo: Seo;
 };
+
+export type Industry = {
+  slug: string;
+  name: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  challenges: { title: string; description: string }[];
+  priorities: { title: string; description: string }[];
+  relatedServiceSlugs: string[];
+  compliance: { title: string; description: string }[];
+  outcomes: Outcome[];
+  faqs: Faq[];
+  seo: Seo;
+};
