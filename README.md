@@ -2,7 +2,7 @@
 
 Rebuild of zaplio.io as a production Next.js + TypeScript + Tailwind site, deployed on Vercel.
 
-See [DESIGN_PLAN.md](./DESIGN_PLAN.md) for the validated design/build plan, and [CONTEXT_CHATGPT.md](./CONTEXT_CHATGPT.md) for the original site audit it's based on.
+All planning docs (design/build plan, the site audit it's based on, and the design/content upgrade plan) live in [`docs/`](./docs/README.md).
 
 ## Git identity (required)
 
