@@ -4,12 +4,14 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Calculator } from "@/components/calculator/calculator";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Cloud Migration Cost Calculator",
   description:
     "Estimate your enterprise cloud migration budget across infrastructure, application remediation, tooling, operational readiness and post-migration optimization.",
-};
+  path: "/cloud-migration-cost-calculator",
+});
 
 export default function CloudMigrationCostCalculatorPage() {
   return (

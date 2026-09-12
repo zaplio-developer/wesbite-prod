@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { industries, getIndustryBySlug } from "@/content/industries";
 import { IndustryPageTemplate } from "@/components/industries/IndustryPageTemplate";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return industries.map((industry) => ({ slug: industry.slug }));
@@ -15,10 +16,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const industry = getIndustryBySlug(slug);
   if (!industry) return {};
-  return {
+  return pageMetadata({
     title: industry.seo.title,
     description: industry.seo.description,
-  };
+    path: `/industries/${industry.slug}`,
+  });
 }
 
 export default async function IndustryPage({

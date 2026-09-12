@@ -4,11 +4,13 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description: "Talk to the Zaplio team about your infrastructure needs.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

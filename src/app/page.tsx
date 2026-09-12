@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { services } from "@/content/services";
 import { getAllArticles } from "@/lib/articles";
+import { pageMetadata } from "@/lib/seo";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
@@ -8,6 +10,12 @@ import { LinkButton } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ServiceCard } from "@/components/cards/ServiceCard";
 import { ArticleCard } from "@/components/cards/ArticleCard";
+
+export const metadata: Metadata = pageMetadata({
+  title: `${siteConfig.name} — ${siteConfig.eyebrow}`,
+  description: siteConfig.description,
+  path: "/",
+});
 
 const problems = [
   {

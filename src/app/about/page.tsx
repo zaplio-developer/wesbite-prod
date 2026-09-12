@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { aboutContent } from "@/content/pages/about";
 import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
@@ -9,10 +10,11 @@ import { Metric } from "@/components/ui/Metric";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About",
   description: aboutContent.whoWeAre,
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

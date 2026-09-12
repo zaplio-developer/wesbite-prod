@@ -5,12 +5,14 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ServiceCard } from "@/components/cards/ServiceCard";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Services",
   description:
     "Cybersecurity, cloud and data center, network transformation, digital workplace, managed IT and professional services — delivered as one integrated infrastructure partnership.",
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

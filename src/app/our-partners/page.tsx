@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { partnersContent } from "@/content/pages/partners";
 import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
@@ -8,10 +9,11 @@ import { Card } from "@/components/ui/Card";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Our Partners",
   description: partnersContent.description,
-};
+  path: "/our-partners",
+});
 
 export default function PartnersPage() {
   return (

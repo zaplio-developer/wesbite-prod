@@ -7,11 +7,13 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { Badge } from "@/components/ui/Badge";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Resources",
   description: "Insights on cloud, cybersecurity, managed IT and infrastructure strategy from Zaplio.",
-};
+  path: "/resources",
+});
 
 export default async function ResourcesPage({
   searchParams,

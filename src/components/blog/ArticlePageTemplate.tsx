@@ -15,6 +15,8 @@ import { ArticleCard } from "@/components/cards/ArticleCard";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { mdxComponents } from "@/components/mdx";
 import { siteConfig } from "@/config/site";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, articleSchema } from "@/lib/structured-data";
 
 export function ArticlePageTemplate({ article }: { article: Article }) {
   const toc = extractToc(article.content);
@@ -23,16 +25,19 @@ export function ArticlePageTemplate({ article }: { article: Article }) {
     .map((slug) => getServiceBySlug(slug))
     .filter((service): service is NonNullable<typeof service> => Boolean(service));
 
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Resources", href: "/resources" },
+    { label: article.title, href: `/${article.slug}` },
+  ];
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
+      <JsonLd data={articleSchema(article)} />
+
       <Section className="pb-0 pt-10 sm:pt-12">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Resources", href: "/resources" },
-            { label: article.title, href: `/${article.slug}` },
-          ]}
-        />
+        <Breadcrumbs items={breadcrumbItems} />
       </Section>
 
       <Section className="pt-6">

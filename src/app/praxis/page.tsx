@@ -6,11 +6,13 @@ import { Heading } from "@/components/ui/Heading";
 import { Card } from "@/components/ui/Card";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PraxisApplicationForm } from "@/components/forms/PraxisApplicationForm";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "PRAXIS",
   description: praxisContent.description,
-};
+  path: "/praxis",
+});
 
 export default function PraxisPage() {
   return (

@@ -8,18 +8,24 @@ import { Accordion } from "@/components/ui/Accordion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 import { siteConfig } from "@/config/site";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, serviceSchema, faqSchema } from "@/lib/structured-data";
 
 export function ServicePageTemplate({ service }: { service: Service }) {
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: service.name, href: `/${service.slug}` },
+  ];
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
+      <JsonLd data={serviceSchema(service)} />
+      {service.faqs.length > 0 && <JsonLd data={faqSchema(service.faqs)} />}
+
       <Section className="pb-0 pt-10 sm:pt-12">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Services", href: "/services" },
-            { label: service.name, href: `/${service.slug}` },
-          ]}
-        />
+        <Breadcrumbs items={breadcrumbItems} />
       </Section>
 
       <Section className="pt-6">

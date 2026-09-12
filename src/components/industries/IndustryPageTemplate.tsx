@@ -9,22 +9,27 @@ import { Accordion } from "@/components/ui/Accordion";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 import { siteConfig } from "@/config/site";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, faqSchema } from "@/lib/structured-data";
 
 export function IndustryPageTemplate({ industry }: { industry: Industry }) {
   const relatedServices = industry.relatedServiceSlugs
     .map((slug) => getServiceBySlug(slug))
     .filter((service): service is NonNullable<typeof service> => Boolean(service));
 
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Industries", href: "/industries" },
+    { label: industry.name, href: `/industries/${industry.slug}` },
+  ];
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema(breadcrumbItems)} />
+      {industry.faqs.length > 0 && <JsonLd data={faqSchema(industry.faqs)} />}
+
       <Section className="pb-0 pt-10 sm:pt-12">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Industries", href: "/industries" },
-            { label: industry.name, href: `/industries/${industry.slug}` },
-          ]}
-        />
+        <Breadcrumbs items={breadcrumbItems} />
       </Section>
 
       <Section className="pt-6">

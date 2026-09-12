@@ -5,12 +5,14 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { IndustryCard } from "@/components/cards/IndustryCard";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Industries",
   description:
     "Enterprise infrastructure for financial services, healthcare, manufacturing, retail & e-commerce, technology & SaaS, and public sector organizations.",
-};
+  path: "/industries",
+});
 
 export default function IndustriesPage() {
   return (
