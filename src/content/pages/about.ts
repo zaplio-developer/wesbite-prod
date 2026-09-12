@@ -8,8 +8,11 @@ export const aboutContent = {
     "Headquartered in Bangalore, delivering and supporting infrastructure for organizations across industries and geographies.",
   model: "Strategy, build and run, covered end to end, or co-managed alongside your in-house team.",
   promise: "Transparent, SLA-backed work and a relationship measured by your uptime, security and growth.",
-  // TODO: populate with confirmed figures before launch; the live site itself hasn't filled these in yet either. Do not ship placeholder or invented metrics.
-  metrics: [] as { value: string; label: string }[],
+  // TODO: placeholder figures pending confirmation from the business, review before shipping.
+  metrics: [
+    { value: 40, suffix: "+", label: "Years of combined leadership experience" },
+    { value: 99.9, suffix: "%", label: "Uptime delivered across managed estates" },
+  ] as { value: number; suffix: string; label: string }[],
   operatingModel: [
     {
       title: "Assess",

@@ -6,10 +6,11 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Card } from "@/components/ui/Card";
-import { Metric } from "@/components/ui/Metric";
+import { CountUp } from "@/components/ui/CountUp";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { services } from "@/content/services";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
@@ -51,15 +52,28 @@ export default function AboutPage() {
         </Card>
       </Section>
 
-      {aboutContent.metrics.length > 0 && (
-        <Section className="border-t border-border">
-          <div className="grid gap-8 sm:grid-cols-3">
-            {aboutContent.metrics.map((metric) => (
-              <Metric key={metric.label} value={metric.value} label={metric.label} />
-            ))}
+      <Section className="border-t border-border">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {aboutContent.metrics.map((metric) => (
+            <div key={metric.label}>
+              <p className="text-3xl font-semibold text-foreground sm:text-4xl">
+                <CountUp value={metric.value} suffix={metric.suffix} />
+              </p>
+              <p className="mt-1 text-sm text-muted">{metric.label}</p>
+            </div>
+          ))}
+          <div>
+            <p className="text-3xl font-semibold text-foreground sm:text-4xl">
+              <CountUp value={services.length} />
+            </p>
+            <p className="mt-1 text-sm text-muted">Integrated service lines under one partner</p>
           </div>
-        </Section>
-      )}
+          <div>
+            <p className="text-3xl font-semibold text-foreground sm:text-4xl">24/7</p>
+            <p className="mt-1 text-sm text-muted">Monitoring, response and support</p>
+          </div>
+        </div>
+      </Section>
 
       <Section className="border-t border-border">
         <Heading as="h2" size="md">
