@@ -7,6 +7,7 @@ import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/footer/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

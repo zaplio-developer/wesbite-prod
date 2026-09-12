@@ -21,3 +21,19 @@ git config user.email "306695144+zaplio-devloper@users.noreply.github.com"
 ```
 
 **Why:** Vercel deployment requires commits authored by the GitHub account connected to the Vercel project (`zaplio-devloper`) — otherwise deployment is blocked ("commit author did not have contributing access").
+
+## Vercel deployment
+
+The Vercel project connected to this repo lives under the `zaplio-devloper` Vercel account — manage it (env vars, domains, deployment protection) directly in that Vercel dashboard. Pushes to `main` auto-deploy to production; other branches/PRs get preview deployments (unindexed — see `robots.ts`).
+
+Environment variables: see `.env.example` for what's read and what's still unwired. Set real values in the Vercel dashboard, never commit them.
+
+## Local development
+
+```
+npm run dev    # http://localhost:4477
+npm run build
+npm run lint
+```
+
+Dev/start are pinned to port 4477 (see `CLAUDE.md`).
