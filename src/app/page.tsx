@@ -1,11 +1,13 @@
 import { siteConfig } from "@/config/site";
 import { services } from "@/content/services";
+import { getAllArticles } from "@/lib/articles";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { LinkButton } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ServiceCard } from "@/components/cards/ServiceCard";
+import { ArticleCard } from "@/components/cards/ArticleCard";
 
 const problems = [
   {
@@ -27,6 +29,8 @@ const problems = [
 ];
 
 export default function Home() {
+  const latestArticles = getAllArticles().slice(0, 3);
+
   return (
     <>
       <Section className="pt-24 sm:pt-32">
@@ -80,6 +84,19 @@ export default function Home() {
           ))}
         </div>
       </Section>
+
+      {latestArticles.length > 0 && (
+        <Section className="border-t border-border">
+          <Heading as="h2" size="md">
+            Latest from Zaplio
+          </Heading>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {latestArticles.map((article) => (
+              <ArticleCard key={article.slug} article={article} />
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section className="border-t border-border">
         <Card className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">

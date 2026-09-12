@@ -33,6 +33,26 @@ export type Service = {
   seo: Seo;
 };
 
+export type ArticleFrontmatter = {
+  title: string;
+  excerpt: string;
+  category: string;
+  author: string;
+  publishedAt: string;
+  updatedAt?: string;
+  featuredImage?: string;
+  relatedServiceSlugs?: string[];
+  relatedArticleSlugs?: string[];
+  seoTitle?: string;
+  seoDescription?: string;
+};
+
+export type Article = ArticleFrontmatter & {
+  slug: string;
+  content: string;
+  readingTimeMinutes: number;
+};
+
 export type Industry = {
   slug: string;
   name: string;
