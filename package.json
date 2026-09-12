@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 4477",
-    "build": "next build",
+    "build": "tsx scripts/migrate-deploy.ts && next build",
     "start": "next start -p 4477",
     "lint": "eslint",
     "validate:routes": "tsx scripts/validate-routes.ts",
