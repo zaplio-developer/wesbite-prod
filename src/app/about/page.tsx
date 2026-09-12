@@ -33,15 +33,15 @@ export default function AboutPage() {
 
       <Section className="grid gap-6 border-t border-border sm:grid-cols-3">
         <Card>
-          <h3 className="text-base font-semibold text-foreground">Mission</h3>
+          <h2 className="text-base font-semibold text-foreground">Mission</h2>
           <p className="mt-2 text-sm text-muted">{aboutContent.mission}</p>
         </Card>
         <Card>
-          <h3 className="text-base font-semibold text-foreground">Model</h3>
+          <h2 className="text-base font-semibold text-foreground">Model</h2>
           <p className="mt-2 text-sm text-muted">{aboutContent.model}</p>
         </Card>
         <Card>
-          <h3 className="text-base font-semibold text-foreground">Promise</h3>
+          <h2 className="text-base font-semibold text-foreground">Promise</h2>
           <p className="mt-2 text-sm text-muted">{aboutContent.promise}</p>
         </Card>
       </Section>

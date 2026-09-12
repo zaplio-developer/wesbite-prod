@@ -1,3 +1,4 @@
+import { useId } from "react";
 import type { CalculatorInputs, Currency } from "./calculation-engine";
 
 type Props = {
@@ -112,10 +113,15 @@ function NumberField({
   min?: number;
   max?: number;
 }) {
+  const id = useId();
+
   return (
     <div>
-      <label className="text-sm font-medium text-foreground">{label}</label>
+      <label htmlFor={id} className="text-sm font-medium text-foreground">
+        {label}
+      </label>
       <input
+        id={id}
         type="number"
         value={Number.isNaN(value) ? "" : value}
         min={min}

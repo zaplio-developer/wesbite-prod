@@ -31,11 +31,11 @@ export default function PraxisPage() {
 
       <Section className="grid gap-6 border-t border-border sm:grid-cols-2">
         <Card>
-          <h3 className="text-base font-semibold text-foreground">What PRAXIS is</h3>
+          <h2 className="text-base font-semibold text-foreground">What PRAXIS is</h2>
           <p className="mt-2 text-sm text-muted">{praxisContent.whatItIs}</p>
         </Card>
         <Card>
-          <h3 className="text-base font-semibold text-foreground">Why it&apos;s different</h3>
+          <h2 className="text-base font-semibold text-foreground">Why it&apos;s different</h2>
           <p className="mt-2 text-sm text-muted">{praxisContent.whyDifferent}</p>
         </Card>
       </Section>

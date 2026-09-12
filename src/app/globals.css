@@ -9,7 +9,8 @@
   --muted: #8b95a5;
   --border: #1d2430;
   --accent: #3b82f6;
-  --accent-foreground: #ffffff;
+  /* Dark, not white: white-on-#3b82f6 fails WCAG AA (3.68:1); dark text clears it (5.48:1). */
+  --accent-foreground: #05070c;
 }
 
 @theme inline {
