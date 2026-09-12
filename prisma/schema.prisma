@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Prisma 7 moved connection URLs out of the schema file and into
+// prisma.config.ts / the PrismaClient driver adapter. See that file for
+// the actual POSTGRES_PRISMA_URL / POSTGRES_URL_NON_POOLING wiring.
+datasource db {
+  provider = "postgresql"
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+model Post {
+  id                  String     @id @default(cuid())
+  slug                String     @unique
+  title               String
+  excerpt             String
+  category            String
+  author              String
+  content             String     @db.Text
+  featuredImageUrl    String?
+  status              PostStatus @default(DRAFT)
+  publishedAt         DateTime?
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+  relatedServiceSlugs String[]
+  relatedArticleSlugs String[]
+  seoTitle            String?
+  seoDescription      String?
+
+  @@index([status, publishedAt])
+}
+
+model ContactSubmission {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  company     String
+  serviceArea String?
+  message     String   @db.Text
+  handled     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model PraxisApplication {
+  id             String   @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  university     String
+  graduationYear String
+  message        String?  @db.Text
+  handled        Boolean  @default(false)
+  createdAt      DateTime @default(now())
+}

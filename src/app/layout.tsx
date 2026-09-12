@@ -6,9 +6,7 @@ import { robotsDefault } from "@/lib/seo";
 import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { Header } from "@/components/navigation/Header";
-import { Footer } from "@/components/footer/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,10 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeProvider>
           <JsonLd data={organizationSchema()} />
           <JsonLd data={websiteSchema()} />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppButton />
+          <SiteChrome>{children}</SiteChrome>
         </ThemeProvider>
       </body>
     </html>

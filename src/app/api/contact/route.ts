@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
 
 type ContactPayload = {
   name?: string;
@@ -35,9 +36,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
   }
 
-  // TODO: wire to real CRM/email provider (e.g. via CONTACT_WEBHOOK_URL or an email API key
-  // set in Vercel environment variables). Never call it with a client-exposed secret.
-  console.info("[contact] submission received", { name, email, company });
+  // TODO: also wire to a real CRM/email provider once one is chosen. Never call it with a
+  // client-exposed secret.
+  if (process.env.POSTGRES_PRISMA_URL) {
+    await prisma.contactSubmission.create({
+      data: { name, email, company, serviceArea, message },
+    });
+  } else {
+    console.info("[contact] POSTGRES_PRISMA_URL not set, logging instead of persisting", {
+      name,
+      email,
+      company,
+    });
+  }
 
   return NextResponse.json({ ok: true });
 }

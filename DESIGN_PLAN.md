@@ -1,13 +1,13 @@
-# Zaplio Website Rebuild — Design Plan (Claude-validated)
+# Zaplio Website Rebuild, Design Plan (Claude-validated)
 
 Source: `CONTEXT_CHATGPT.md` (ChatGPT audit of live zaplio.io). This document validates that audit and turns it into an actionable build plan.
 
 ## Validation notes
 
 - IA, service/article data schemas, and phased build order are sound for a Next.js + Vercel rebuild.
-- Citations in the source doc reflect a point-in-time crawl of zaplio.io — re-verify exact copy, dates, authors, and numbers against the live site before migrating, don't trust them as final truth.
-- Correctly flags placeholder `0%` metrics and unverified 25-40% TCO claims on the current site — do not carry these into production; leave metrics empty until Zaplio confirms real figures.
-- No invented logos, certs, case studies, partner relationships, or bios — enforced throughout.
+- Citations in the source doc reflect a point-in-time crawl of zaplio.io, re-verify exact copy, dates, authors, and numbers against the live site before migrating, don't trust them as final truth.
+- Correctly flags placeholder `0%` metrics and unverified 25-40% TCO claims on the current site, do not carry these into production; leave metrics empty until Zaplio confirms real figures.
+- No invented logos, certs, case studies, partner relationships, or bios, enforced throughout.
 
 ## Stack
 
@@ -55,7 +55,7 @@ Keep as a real feature. Calculation logic isolated in `calculation-engine.ts`, i
 
 ## AI assistant
 
-`UI → /api/chat → knowledge layer (services/industries/partners/PRAXIS/blog/FAQs) → LLM`. No API keys client-side. Guardrail: never invent pricing, SLAs, certs, guarantees, or customer claims — say "I don't have that information" instead.
+`UI → /api/chat → knowledge layer (services/industries/partners/PRAXIS/blog/FAQs) → LLM`. No API keys client-side. Guardrail: never invent pricing, SLAs, certs, guarantees, or customer claims, say "I don't have that information" instead.
 
 ## SEO
 
