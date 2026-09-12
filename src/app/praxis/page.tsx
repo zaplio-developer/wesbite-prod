@@ -36,7 +36,10 @@ export default function PraxisPage() {
         <ImagePlaceholder label="PRAXIS hero image" aspect="video" />
       </Section>
 
-      <Section className="grid gap-6 border-t border-border sm:grid-cols-2">
+      <Section
+        className="border-t border-border"
+        containerClassName="grid gap-6 sm:grid-cols-2"
+      >
         <Card>
           <h2 className="text-base font-semibold text-foreground">What PRAXIS is</h2>
           <p className="mt-2 text-sm text-muted">{praxisContent.whatItIs}</p>
