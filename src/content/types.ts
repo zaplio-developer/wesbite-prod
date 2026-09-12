@@ -1,0 +1,34 @@
+export type Seo = {
+  title: string;
+  description: string;
+};
+
+export type ProcessStep = {
+  number: string;
+  title: string;
+  description: string;
+};
+
+export type Faq = {
+  question: string;
+  answer: string;
+};
+
+export type Outcome = {
+  value: string;
+  label: string;
+};
+
+export type Service = {
+  slug: string;
+  name: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  benefits: { title: string; description: string }[];
+  capabilities: { title: string; description: string }[];
+  process: ProcessStep[];
+  outcomes: Outcome[];
+  faqs: Faq[];
+  seo: Seo;
+};
