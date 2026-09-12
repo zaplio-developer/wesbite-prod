@@ -6,7 +6,11 @@
     "dev": "next dev -p 4477",
     "build": "next build",
     "start": "next start -p 4477",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:routes": "tsx scripts/validate-routes.ts",
+    "validate:seo": "tsx scripts/validate-seo.ts",
+    "validate:links": "tsx scripts/validate-links.ts",
+    "validate": "tsx scripts/validate-site.ts"
   },
   "dependencies": {
     "github-slugger": "^2.0.0",
@@ -28,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
     "tailwindcss": "^4",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   }
 }

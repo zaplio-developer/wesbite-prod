@@ -14,6 +14,7 @@ const staticRoutes = [
   "/praxis",
   "/contact",
   "/cloud-migration-cost-calculator",
+  "/privacy-policy",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
