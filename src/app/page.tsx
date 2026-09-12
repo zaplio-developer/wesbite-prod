@@ -44,7 +44,10 @@ export default function Home() {
 
   return (
     <>
-      <Section className="grid items-center gap-10 pt-24 sm:pt-32 lg:grid-cols-[1.1fr_0.9fr]">
+      <Section
+        className="pt-24 sm:pt-32"
+        containerClassName="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]"
+      >
         <div>
           <Eyebrow>{siteConfig.eyebrow}</Eyebrow>
           <Heading as="h1" size="xl" className="mt-4 max-w-3xl">

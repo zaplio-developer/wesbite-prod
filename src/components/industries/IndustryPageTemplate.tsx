@@ -33,7 +33,10 @@ export function IndustryPageTemplate({ industry }: { industry: Industry }) {
         <Breadcrumbs items={breadcrumbItems} />
       </Section>
 
-      <Section className="grid items-center gap-10 pt-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <Section
+        className="pt-6"
+        containerClassName="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]"
+      >
         <div>
           <Eyebrow>{industry.eyebrow}</Eyebrow>
           <Heading as="h1" size="xl" className="mt-4 max-w-3xl">

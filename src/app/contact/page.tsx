@@ -31,7 +31,10 @@ export default function ContactPage() {
         </p>
       </Section>
 
-      <Section className="grid gap-10 border-t border-border lg:grid-cols-[1fr_320px]">
+      <Section
+        className="border-t border-border"
+        containerClassName="grid gap-10 lg:grid-cols-[1fr_320px]"
+      >
         <ContactForm />
         <div className="flex flex-col gap-6 text-sm">
           <a

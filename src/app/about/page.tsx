@@ -33,7 +33,10 @@ export default function AboutPage() {
         <p className="mt-4 max-w-2xl text-sm text-muted">{aboutContent.reach}</p>
       </Section>
 
-      <Section className="grid gap-6 border-t border-border sm:grid-cols-3">
+      <Section
+        className="border-t border-border"
+        containerClassName="grid gap-6 sm:grid-cols-3"
+      >
         <Card>
           <h2 className="text-base font-semibold text-foreground">Mission</h2>
           <p className="mt-2 text-sm text-muted">{aboutContent.mission}</p>
