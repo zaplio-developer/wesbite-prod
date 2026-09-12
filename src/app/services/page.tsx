@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Services",
   description:
-    "Cybersecurity, cloud and data center, network transformation, digital workplace, managed IT and professional services — delivered as one integrated infrastructure partnership.",
+    "Cybersecurity, cloud and data center, network transformation, digital workplace, managed IT and professional services, delivered as one integrated infrastructure partnership.",
   path: "/services",
 });
 
@@ -26,7 +26,7 @@ export default function ServicesPage() {
           Six service lines. One accountable team.
         </Heading>
         <p className="mt-6 max-w-2xl text-lg text-muted">
-          Cloud, cybersecurity, networking, workplace and managed IT — designed, delivered and
+          Cloud, cybersecurity, networking, workplace and managed IT, designed, delivered and
           operated together instead of as disconnected specialist engagements.
         </p>
       </Section>

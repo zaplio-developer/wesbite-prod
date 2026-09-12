@@ -13,8 +13,7 @@ export const siteConfig = {
   name: "Zaplio",
   eyebrow: "Enterprise IT Infrastructure Partner",
   description:
-    "Cloud, cybersecurity, networking and managed IT — designed, delivered and operated as one integrated infrastructure platform.",
-  // TODO: confirm production URL before launch.
+    "Cloud, cybersecurity, networking and managed IT, designed, delivered and operated as one integrated infrastructure platform.",
   url: "https://zaplio.io",
   primaryCta: {
     label: "Talk to an Expert",
@@ -23,6 +22,19 @@ export const siteConfig = {
   secondaryCta: {
     label: "Explore Services",
     href: "/services",
+  },
+  contact: {
+    email: "info@zaplio.io",
+    phone: "+91 76193 87022",
+    registeredOffice: "Indiqube Opal, Ground Floor, No.192 & 193, Double Road, Binnamangala 2nd Stage, 100ft Road, Indiranagar, Bangalore, 560038",
+    corporateOffice: "No. 17 (2074), 16th D Main, HAL II Stage, Indiranagar, Bangalore, 560008",
+    hours: "Monday to Saturday, one business day response",
+  },
+  social: {
+    linkedin: "https://in.linkedin.com/company/zaplio-technologies",
+    x: "https://x.com/zaplioofficial",
+    instagram: "https://www.instagram.com/zaplio.official/",
+    facebook: "https://www.facebook.com/profile.php?id=61591545602311",
   },
 } as const;
 

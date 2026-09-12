@@ -37,6 +37,6 @@ export const publicSector: Industry = {
   seo: {
     title: "Infrastructure for Public Sector",
     description:
-      "Enterprise IT infrastructure for public sector organizations — built for accountability, security and service continuity.",
+      "Enterprise IT infrastructure for public sector organizations, built for accountability, security and service continuity.",
   },
 };

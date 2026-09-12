@@ -1,7 +1,19 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  --background: #ffffff;
+  --surface: #f3f5f8;
+  --surface-hover: #e9ecf1;
+  --foreground: #0a0e14;
+  --muted: #5b6472;
+  --border: #e2e6ec;
+  --accent: #2563eb;
+  --accent-foreground: #ffffff;
+}
+
+.dark {
   --background: #05070c;
   --surface: #0b0f18;
   --surface-hover: #10151f;
@@ -9,7 +21,7 @@
   --muted: #8b95a5;
   --border: #1d2430;
   --accent: #3b82f6;
-  /* Dark, not white: white-on-#3b82f6 fails WCAG AA (3.68:1); dark text clears it (5.48:1). */
+  /* Dark text, not white: white-on-#3b82f6 fails WCAG AA (3.68:1); dark text clears it (5.48:1). */
   --accent-foreground: #05070c;
 }
 
@@ -29,10 +41,59 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-/* PRAXIS runs a distinct accent identity on the same dark base, scoped to its own pages. */
+/* PRAXIS runs a distinct warm accent identity on the same base, in both modes. */
 .theme-praxis {
+  --accent: #b45309;
+  --accent-foreground: #ffffff;
+}
+.dark .theme-praxis {
   --accent: #f59e0b;
   --accent-foreground: #0a0a0a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
 }

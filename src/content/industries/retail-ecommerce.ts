@@ -37,6 +37,6 @@ export const retailEcommerce: Industry = {
   seo: {
     title: "Infrastructure for Retail & E-commerce",
     description:
-      "Enterprise IT infrastructure for retail and e-commerce — built to scale for peak demand and protect payment data.",
+      "Enterprise IT infrastructure for retail and e-commerce, built to scale for peak demand and protect payment data.",
   },
 };

@@ -8,6 +8,7 @@ import { Heading } from "@/components/ui/Heading";
 import { Card } from "@/components/ui/Card";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 export const metadata: Metadata = pageMetadata({
   title: "Our Partners",
@@ -40,6 +41,17 @@ export default function PartnersPage() {
               <h3 className="text-base font-semibold text-foreground">{category.name}</h3>
               <p className="mt-2 text-sm text-muted">{category.description}</p>
             </Card>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="border-t border-border">
+        <Heading as="h2" size="md">
+          Technology partners
+        </Heading>
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {partnersContent.technologyPartners.map((partner) => (
+            <ImagePlaceholder key={partner} label={`${partner} logo`} aspect="wide" />
           ))}
         </div>
       </Section>

@@ -3,8 +3,10 @@ import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
@@ -29,9 +31,41 @@ export default function ContactPage() {
         </p>
       </Section>
 
-      <Section className="border-t border-border">
-        <div className="max-w-2xl">
-          <ContactForm />
+      <Section className="grid gap-10 border-t border-border lg:grid-cols-[1fr_320px]">
+        <ContactForm />
+        <div className="flex flex-col gap-6 text-sm">
+          <a
+            href={`mailto:${siteConfig.contact.email}`}
+            className="flex items-start gap-3 text-muted hover:text-foreground"
+          >
+            <Mail size={18} className="mt-0.5 shrink-0" aria-hidden="true" />
+            <span>
+              {siteConfig.contact.email}
+              <br />
+              {siteConfig.contact.hours}
+            </span>
+          </a>
+          <a
+            href={`tel:${siteConfig.contact.phone}`}
+            className="flex items-start gap-3 text-muted hover:text-foreground"
+          >
+            <Phone size={18} className="mt-0.5 shrink-0" aria-hidden="true" />
+            {siteConfig.contact.phone}
+          </a>
+          <div className="flex items-start gap-3 text-muted">
+            <MapPin size={18} className="mt-0.5 shrink-0" aria-hidden="true" />
+            <div>
+              <p className="font-medium text-foreground">Registered Office</p>
+              <p>{siteConfig.contact.registeredOffice}</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 text-muted">
+            <MapPin size={18} className="mt-0.5 shrink-0" aria-hidden="true" />
+            <div>
+              <p className="font-medium text-foreground">Corporate Office</p>
+              <p>{siteConfig.contact.corporateOffice}</p>
+            </div>
+          </div>
         </div>
       </Section>
     </>

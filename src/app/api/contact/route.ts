@@ -4,9 +4,9 @@ type ContactPayload = {
   name?: string;
   email?: string;
   company?: string;
-  interest?: string;
+  serviceArea?: string;
   message?: string;
-  // Honeypot field — real users never fill this in.
+  // Honeypot field, real users never fill this in.
   website?: string;
 };
 
@@ -20,13 +20,13 @@ export async function POST(request: Request) {
   }
 
   if (body.website) {
-    // Honeypot triggered — silently accept without processing.
+    // Honeypot triggered, silently accept without processing.
     return NextResponse.json({ ok: true });
   }
 
-  const { name, email, company, message } = body;
+  const { name, email, company, serviceArea, message } = body;
 
-  if (!name || !email || !company || !message) {
+  if (!name || !email || !company || !serviceArea || !message) {
     return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
   }
 

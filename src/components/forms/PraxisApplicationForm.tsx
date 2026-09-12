@@ -42,7 +42,7 @@ export function PraxisApplicationForm() {
   if (status === "success") {
     return (
       <div className="rounded-lg border border-border bg-surface p-6 text-sm text-foreground">
-        Thanks — we&apos;ve received your application and will be in touch.
+        Thanks, we&apos;ve received your application and will be in touch.
       </div>
     );
   }

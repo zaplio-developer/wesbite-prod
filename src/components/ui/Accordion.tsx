@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import * as RadixAccordion from "@radix-ui/react-accordion";
+import { Plus } from "lucide-react";
 import { cn } from "@/lib/cn";
 
 export type AccordionItem = {
@@ -9,50 +10,35 @@ export type AccordionItem = {
 };
 
 export function Accordion({ items }: { items: AccordionItem[] }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   return (
-    <div className="divide-y divide-border rounded-lg border border-border bg-surface">
-      {items.map((item, index) => {
-        const isOpen = openIndex === index;
-        const panelId = `accordion-panel-${index}`;
-        const buttonId = `accordion-button-${index}`;
-
-        return (
-          <div key={item.question}>
-            <h3>
-              <button
-                id={buttonId}
-                type="button"
-                aria-expanded={isOpen}
-                aria-controls={panelId}
-                onClick={() => setOpenIndex(isOpen ? null : index)}
-                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium text-foreground hover:bg-surface-hover"
-              >
-                <span>{item.question}</span>
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "shrink-0 text-muted transition-transform",
-                    isOpen && "rotate-45",
-                  )}
-                >
-                  +
-                </span>
-              </button>
-            </h3>
-            <div
-              id={panelId}
-              role="region"
-              aria-labelledby={buttonId}
-              hidden={!isOpen}
-              className="px-5 pb-4 text-sm text-muted"
-            >
-              {item.answer}
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    <RadixAccordion.Root
+      type="single"
+      collapsible
+      defaultValue={items[0]?.question}
+      className="divide-y divide-border rounded-lg border border-border bg-surface"
+    >
+      {items.map((item) => (
+        <RadixAccordion.Item key={item.question} value={item.question}>
+          <RadixAccordion.Header>
+            <RadixAccordion.Trigger className="group flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-sm font-medium text-foreground hover:bg-surface-hover">
+              <span>{item.question}</span>
+              <Plus
+                size={16}
+                aria-hidden="true"
+                className="shrink-0 text-muted transition-transform group-data-[state=open]:rotate-45"
+              />
+            </RadixAccordion.Trigger>
+          </RadixAccordion.Header>
+          <RadixAccordion.Content
+            className={cn(
+              "overflow-hidden px-5 text-sm text-muted",
+              "data-[state=open]:animate-[accordion-down_0.2s_ease-out] data-[state=closed]:animate-[accordion-up_0.2s_ease-out]",
+            )}
+          >
+            <div className="pb-4">{item.answer}</div>
+          </RadixAccordion.Content>
+        </RadixAccordion.Item>
+      ))}
+    </RadixAccordion.Root>
   );
 }

@@ -9,6 +9,7 @@ import { Card } from "@/components/ui/Card";
 import { Metric } from "@/components/ui/Metric";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
@@ -29,6 +30,7 @@ export default function AboutPage() {
           {aboutContent.title}
         </Heading>
         <p className="mt-6 max-w-2xl text-lg text-muted">{aboutContent.whoWeAre}</p>
+        <p className="mt-4 max-w-2xl text-sm text-muted">{aboutContent.reach}</p>
       </Section>
 
       <Section className="grid gap-6 border-t border-border sm:grid-cols-3">
@@ -79,9 +81,17 @@ export default function AboutPage() {
         </Heading>
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {aboutContent.leadership.map((person) => (
-            <Card key={person.name}>
-              <h3 className="text-base font-semibold text-foreground">{person.name}</h3>
-              {person.role && <p className="mt-1 text-sm text-muted">{person.role}</p>}
+            <Card key={person.name} className="flex gap-4">
+              <ImagePlaceholder
+                label="Headshot"
+                aspect="square"
+                className="w-24 shrink-0"
+              />
+              <div>
+                <h3 className="text-base font-semibold text-foreground">{person.name}</h3>
+                <p className="mt-1 text-sm text-accent">{person.role}</p>
+                <p className="mt-2 text-sm text-muted">{person.bio}</p>
+              </div>
             </Card>
           ))}
         </div>

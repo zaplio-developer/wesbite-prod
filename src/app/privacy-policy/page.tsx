@@ -25,8 +25,8 @@ export default function PrivacyPolicyPage() {
         </Heading>
         <p className="mt-6 max-w-2xl text-muted">
           This page is a placeholder. The published privacy policy must be drafted and reviewed
-          by Zaplio&apos;s legal team — covering what data is collected, how it&apos;s used,
-          third-party processors, retention, and user rights — before this page goes live. It is
+          by Zaplio&apos;s legal team, covering what data is collected, how it&apos;s used,
+          third-party processors, retention, and user rights, before this page goes live. It is
           not generated here.
         </p>
       </Section>

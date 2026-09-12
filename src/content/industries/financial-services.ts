@@ -41,6 +41,6 @@ export const financialServices: Industry = {
   seo: {
     title: "Infrastructure for Financial Services",
     description:
-      "Enterprise IT infrastructure for financial services — built for resilience, security and auditability.",
+      "Enterprise IT infrastructure for financial services, built for resilience, security and auditability.",
   },
 };

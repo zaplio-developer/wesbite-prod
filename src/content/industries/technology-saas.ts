@@ -37,6 +37,6 @@ export const technologySaas: Industry = {
   seo: {
     title: "Infrastructure for Technology & SaaS",
     description:
-      "Enterprise IT infrastructure for technology and SaaS companies — scalable, secure, and built to keep pace with product velocity.",
+      "Enterprise IT infrastructure for technology and SaaS companies, scalable, secure, and built to keep pace with product velocity.",
   },
 };

@@ -7,7 +7,7 @@ type PraxisApplicationPayload = {
   university?: string;
   graduationYear?: string;
   message?: string;
-  // Honeypot field — real users never fill this in.
+  // Honeypot field, real users never fill this in.
   website?: string;
 };
 

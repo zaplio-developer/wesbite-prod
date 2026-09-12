@@ -6,7 +6,7 @@ export const digitalWorkplace: Service = {
   eyebrow: "Digital Workplace",
   title: "A workplace built for how people actually work.",
   description:
-    "Device lifecycle, collaboration tooling and endpoint security designed for a secure, productive workplace — wherever your people are.",
+    "Device lifecycle, collaboration tooling and endpoint security designed for a secure, productive workplace, wherever your people are.",
   benefits: [
     {
       title: "Secure by default",
@@ -48,6 +48,6 @@ export const digitalWorkplace: Service = {
   seo: {
     title: "Digital Workplace Services",
     description:
-      "Device lifecycle, collaboration tooling, endpoint security and mobility — delivered as part of one integrated infrastructure partnership.",
+      "Device lifecycle, collaboration tooling, endpoint security and mobility, delivered as part of one integrated infrastructure partnership.",
   },
 };

@@ -41,6 +41,6 @@ export const healthcare: Industry = {
   seo: {
     title: "Infrastructure for Healthcare",
     description:
-      "Enterprise IT infrastructure for healthcare organizations — built for data protection and continuous availability.",
+      "Enterprise IT infrastructure for healthcare organizations, built for data protection and continuous availability.",
   },
 };

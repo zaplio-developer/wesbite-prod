@@ -2,9 +2,20 @@
 
 import { useState, type FormEvent } from "react";
 import { FormField } from "@/components/ui/FormField";
+import { Select } from "@/components/ui/Select";
 import { Button } from "@/components/ui/Button";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const serviceAreaOptions = [
+  "Cybersecurity Services",
+  "Cloud & Data Center",
+  "Managed IT Services",
+  "Network Transformation",
+  "Digital Workplace",
+  "Professional Services / Consulting",
+  "Not sure yet",
+];
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -42,7 +53,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="rounded-lg border border-border bg-surface p-6 text-sm text-foreground">
-        Thanks — we&apos;ve received your message and will be in touch shortly.
+        Thanks, we&apos;ve received your message and will be in touch within one business day.
       </div>
     );
   }
@@ -55,9 +66,15 @@ export function ContactForm() {
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField label="Company" name="company" required autoComplete="organization" />
-        <FormField label="What can we help with?" name="interest" />
+        <Select
+          label="Service area"
+          name="serviceArea"
+          placeholder="Select a service area"
+          options={serviceAreaOptions}
+          required
+        />
       </div>
-      <FormField label="Message" name="message" as="textarea" required />
+      <FormField label="Project description" name="message" as="textarea" required placeholder="Tell us about your project" />
 
       {/* Honeypot field, hidden from real users */}
       <div className="hidden" aria-hidden="true">

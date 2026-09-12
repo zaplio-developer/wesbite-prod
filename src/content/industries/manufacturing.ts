@@ -37,6 +37,6 @@ export const manufacturing: Industry = {
   seo: {
     title: "Infrastructure for Manufacturing",
     description:
-      "Enterprise IT infrastructure for manufacturing — connecting plant-floor and enterprise systems securely.",
+      "Enterprise IT infrastructure for manufacturing, connecting plant-floor and enterprise systems securely.",
   },
 };

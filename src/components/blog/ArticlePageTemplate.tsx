@@ -13,6 +13,7 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { LinkButton } from "@/components/ui/Button";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { TableOfContents } from "@/components/blog/TableOfContents";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { mdxComponents } from "@/components/mdx";
 import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -58,6 +59,10 @@ export function ArticlePageTemplate({ article }: { article: Article }) {
           <span aria-hidden="true">&middot;</span>
           <span>{article.readingTimeMinutes} min read</span>
         </div>
+      </Section>
+
+      <Section className="pt-0">
+        <ImagePlaceholder label={`${article.title} featured image`} aspect="wide" />
       </Section>
 
       <Section className="border-t border-border">

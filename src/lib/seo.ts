@@ -34,7 +34,7 @@ export function pageMetadata({
 }
 
 /**
- * Vercel preview deployments must not be indexed — only production is. Applied
+ * Vercel preview deployments must not be indexed, only production is. Applied
  * globally in the root layout's metadata.
  */
 export const robotsDefault: Metadata["robots"] = isProduction

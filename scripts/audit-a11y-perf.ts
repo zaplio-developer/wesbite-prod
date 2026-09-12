@@ -9,7 +9,7 @@ const READY_TIMEOUT_MS = 60_000;
 const REPORTS_DIR = path.join(process.cwd(), ".audit");
 
 // A representative sample covering every page template type (marketing, service,
-// industry, article, tool, form) — not every route, to keep this fast to run.
+// industry, article, tool, form), not every route, to keep this fast to run.
 const ROUTES_TO_AUDIT = [
   "/",
   "/cybersecurity-services",
@@ -21,7 +21,15 @@ const ROUTES_TO_AUDIT = [
 ];
 
 // Blocking: any critical/serious axe violation fails the audit. Moderate/minor are
-// reported but don't fail the run — they're worth fixing, not launch-blocking.
+// reported but don't fail the run, they're worth fixing, not launch-blocking.
+//
+// Known false-positive: axe's color-contrast check can report a "blended" foreground
+// color (partway toward the background) for small (~12px) anti-aliased text, rather
+// than the actual CSS color. Verified via direct getComputedStyle inspection that
+// e.g. Eyebrow's --accent text renders as the exact intended #3b82f6 on #05070c
+// (5.48:1, passes 4.5:1) even when axe reports a sampled ~#3370d3 and fails it. If a
+// color-contrast violation targets small uppercase/label text, double check the real
+// computed color in a browser before "fixing" a color that's already correct.
 const BLOCKING_IMPACTS = new Set(["critical", "serious"]);
 
 function findChromeExecutable(): string {
@@ -53,6 +61,7 @@ type AxeViolation = {
   description: string;
   help: string;
   nodes: number;
+  targets: string[];
 };
 
 type RouteReport = {
@@ -74,19 +83,28 @@ async function auditRoute(page: import("puppeteer-core").Page, axeSource: string
     };
   });
 
+  // Let fonts/paint settle before measuring computed styles; axe's color-contrast
+  // check reads live rendered styles and can catch a page mid-paint otherwise.
+  await page.evaluate(() => document.fonts.ready);
+  await new Promise((resolve) => setTimeout(resolve, 200));
+
   await page.evaluate(axeSource);
   const axeResults = (await page.evaluate(() => {
     // @ts-expect-error injected global from axe-core source
     return window.axe.run();
   })) as { violations: AxeViolation[] };
 
-  const violations = axeResults.violations.map((v) => ({
-    id: v.id,
-    impact: v.impact,
-    description: v.description,
-    help: v.help,
-    nodes: (v as unknown as { nodes: unknown[] }).nodes.length,
-  }));
+  const violations = axeResults.violations.map((v) => {
+    const rawNodes = (v as unknown as { nodes: { target: string[] }[] }).nodes;
+    return {
+      id: v.id,
+      impact: v.impact,
+      description: v.description,
+      help: v.help,
+      nodes: rawNodes.length,
+      targets: rawNodes.map((n) => n.target.join(" ")),
+    };
+  });
 
   return { route, timing, violations };
 }
@@ -149,12 +167,15 @@ async function main() {
         console.log(
           `    a11y ${blocking ? "FAIL" : "warn"} [${v.impact}] ${v.id}: ${v.help} (${v.nodes} node(s))`,
         );
+        for (const target of v.targets) {
+          console.log(`      -> ${target}`);
+        }
       }
     }
 
     console.log(`\nFull reports written to ${REPORTS_DIR}/report.json`);
     console.log(
-      "Timing figures are indicative on this local machine, not a production benchmark —",
+      "Timing figures are indicative on this local machine, not a production benchmark;",
       "measure real Core Web Vitals against the deployed Vercel site (e.g. PageSpeed Insights).",
     );
 

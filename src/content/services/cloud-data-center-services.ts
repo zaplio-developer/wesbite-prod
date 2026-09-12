@@ -6,7 +6,7 @@ export const cloudDataCenterServices: Service = {
   eyebrow: "Cloud & Data Center",
   title: "Cloud and data center infrastructure, modernized.",
   description:
-    "Migration, hybrid and multi-cloud architecture, and data-center modernization — planned and operated as one program, not a series of disconnected projects.",
+    "Migration, hybrid and multi-cloud architecture, and data-center modernization, planned and operated as one program, not a series of disconnected projects.",
   benefits: [
     {
       title: "Lower long-term cost",
@@ -44,7 +44,7 @@ export const cloudDataCenterServices: Service = {
     {
       question: "Do we need to migrate everything to the cloud?",
       answer:
-        "No. We assess each workload on its own merits — some are strong candidates for cloud migration, others are better served by modernizing on-prem infrastructure or a hybrid approach.",
+        "No. We assess each workload on its own merits, some are strong candidates for cloud migration, others are better served by modernizing on-prem infrastructure or a hybrid approach.",
     },
     {
       question: "How do you minimize downtime during migration?",

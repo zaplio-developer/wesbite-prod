@@ -6,7 +6,7 @@ export const managedItServices: Service = {
   eyebrow: "Managed IT",
   title: "IT operations, managed end to end.",
   description:
-    "24/7 monitoring, helpdesk, patching and infrastructure management — so your infrastructure runs reliably without consuming your internal team's time.",
+    "24/7 monitoring, helpdesk, patching and infrastructure management, so your infrastructure runs reliably without consuming your internal team's time.",
   benefits: [
     {
       title: "Always-on coverage",
@@ -35,14 +35,14 @@ export const managedItServices: Service = {
   ],
   process: [
     { number: "01", title: "Assess", description: "Review current IT operations, tooling and pain points." },
-    { number: "02", title: "Architect", description: "Design the managed services model — fully managed or co-managed." },
+    { number: "02", title: "Architect", description: "Design the managed services model, fully managed or co-managed." },
     { number: "03", title: "Migrate", description: "Onboard monitoring, helpdesk and management processes into your environment." },
     { number: "04", title: "Optimize", description: "Continuously refine based on reporting and evolving needs." },
   ],
   outcomes: [],
   faqs: [
     {
-      question: "Fully managed or co-managed — which is right for us?",
+      question: "Fully managed or co-managed, which is right for us?",
       answer:
         "It depends on the size and maturity of your internal IT team. We can take full operational ownership, or work alongside your existing team on specific functions.",
     },
@@ -55,6 +55,6 @@ export const managedItServices: Service = {
   seo: {
     title: "Managed IT Services",
     description:
-      "24/7 NOC, helpdesk, proactive monitoring, patch management, infrastructure management and asset lifecycle — delivered as one accountable managed IT service.",
+      "24/7 NOC, helpdesk, proactive monitoring, patch management, infrastructure management and asset lifecycle, delivered as one accountable managed IT service.",
   },
 };

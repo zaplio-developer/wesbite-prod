@@ -6,7 +6,7 @@ export const cybersecurityServices: Service = {
   eyebrow: "Cybersecurity",
   title: "Security operations built for enterprise infrastructure.",
   description:
-    "24/7 security operations, threat intelligence and compliance support designed to protect enterprise infrastructure end to end — not just the perimeter.",
+    "24/7 security operations, threat intelligence and compliance support designed to protect enterprise infrastructure end to end, not just the perimeter.",
   benefits: [
     {
       title: "Continuous visibility",
@@ -44,7 +44,7 @@ export const cybersecurityServices: Service = {
     {
       question: "How do you approach a new security engagement?",
       answer:
-        "We start with an assessment of your current environment — infrastructure, identity, endpoints and existing controls — to identify the highest-priority risks before recommending an approach.",
+        "We start with an assessment of your current environment, infrastructure, identity, endpoints and existing controls, to identify the highest-priority risks before recommending an approach.",
     },
     {
       question: "Does this replace our internal IT/security team?",
@@ -55,6 +55,6 @@ export const cybersecurityServices: Service = {
   seo: {
     title: "Cybersecurity Services",
     description:
-      "24/7 SOC, threat intelligence, vulnerability management, IAM, endpoint security, compliance and incident response — delivered as part of one integrated infrastructure partnership.",
+      "24/7 SOC, threat intelligence, vulnerability management, IAM, endpoint security, compliance and incident response, delivered as part of one integrated infrastructure partnership.",
   },
 };

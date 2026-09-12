@@ -6,6 +6,7 @@ import { Heading } from "@/components/ui/Heading";
 import { Card } from "@/components/ui/Card";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PraxisApplicationForm } from "@/components/forms/PraxisApplicationForm";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -21,12 +22,15 @@ export default function PraxisPage() {
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "PRAXIS", href: "/praxis" }]} />
       </Section>
 
-      <Section className="pt-6">
-        <Eyebrow>{praxisContent.eyebrow}</Eyebrow>
-        <Heading as="h1" size="xl" className="mt-4 max-w-3xl">
-          {praxisContent.title}
-        </Heading>
-        <p className="mt-6 max-w-2xl text-lg text-muted">{praxisContent.description}</p>
+      <Section className="grid items-center gap-10 pt-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <Eyebrow>{praxisContent.eyebrow}</Eyebrow>
+          <Heading as="h1" size="xl" className="mt-4 max-w-3xl">
+            {praxisContent.title}
+          </Heading>
+          <p className="mt-6 max-w-2xl text-lg text-muted">{praxisContent.description}</p>
+        </div>
+        <ImagePlaceholder label="PRAXIS hero image" aspect="video" />
       </Section>
 
       <Section className="grid gap-6 border-t border-border sm:grid-cols-2">

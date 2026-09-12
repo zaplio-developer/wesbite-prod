@@ -12,7 +12,9 @@ describe("ContactForm", () => {
     await user.type(screen.getByLabelText(/name/i), "Jane Doe");
     await user.type(screen.getByLabelText(/work email/i), "jane@example.com");
     await user.type(screen.getByLabelText(/company/i), "Acme Corp");
-    await user.type(screen.getByLabelText(/message/i), "Hello there");
+    await user.click(screen.getByRole("combobox", { name: /service area/i }));
+    await user.click(await screen.findByRole("option", { name: /not sure yet/i }));
+    await user.type(screen.getByLabelText(/project description/i), "Hello there");
   }
 
   it("shows a success message after a successful submission", async () => {

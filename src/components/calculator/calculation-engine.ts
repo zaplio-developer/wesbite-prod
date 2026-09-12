@@ -30,7 +30,7 @@ export type CalculatorResults = {
 
 /**
  * Illustrative cost model, not a verified pricing benchmark. All factors below
- * are assumptions the calculator applies consistently — they exist so the tool
+ * are assumptions the calculator applies consistently, they exist so the tool
  * produces directionally useful, adjustable output, not a guaranteed quote.
  */
 const STRATEGY_EFFORT_FACTOR = {

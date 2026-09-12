@@ -11,11 +11,21 @@ export const partnersContent = {
     { name: "IT Operations", description: "Monitoring, observability and IT operations management tooling." },
     { name: "Workplace", description: "Collaboration and device management platforms." },
   ],
-  // TODO: confirm current, formally named strategic partners with Zaplio before publishing.
+  technologyPartners: [
+    "Microsoft",
+    "AWS",
+    "Palo Alto",
+    "Fortinet",
+    "Cohesity",
+    "Panasonic",
+    "Adobe",
+    "Zoho",
+    "Check Point",
+  ],
   strategicPartners: [
     {
       name: "Motadata",
-      description: "Unified IT operations and observability alliance.",
+      description: "Unified IT operations and observability alliance: AI-assisted ITSM and consolidated tooling.",
     },
   ],
 };

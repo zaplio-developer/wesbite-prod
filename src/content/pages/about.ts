@@ -2,36 +2,42 @@ export const aboutContent = {
   eyebrow: "About Zaplio",
   title: "One infrastructure partner, built to be accountable end to end.",
   whoWeAre:
-    "Zaplio is an enterprise IT infrastructure partner. We bring cloud, data center, cybersecurity, networking, digital workplace and managed IT together under one accountable team, instead of leaving customers to coordinate multiple specialist vendors themselves.",
-  mission:
-    "To give enterprises a single, accountable partner for the infrastructure their business runs on — so leaders can focus on the business, not on coordinating vendors.",
-  model:
-    "Rather than specializing in one layer of infrastructure, we operate across cloud, network, security, workplace and IT operations as one integrated practice, with one team accountable for outcomes across all of it.",
-  promise:
-    "We do not invent numbers, certifications or results we cannot stand behind. What we commit to, we deliver — and we say so plainly when something is outside our scope.",
-  // TODO: populate with confirmed figures before launch — do not ship placeholder or invented metrics.
+    "Zaplio Technologies is an enterprise IT infrastructure company built on a simple belief: organizations shouldn't have to stitch together a dozen vendors to run reliable, secure technology. We offer cloud, data center, cybersecurity, networking, digital workplace and managed services as one integrated platform, with 24/7 operations and outcome-based delivery.",
+  mission: "To simplify enterprise IT and turn infrastructure into a competitive advantage for every client we serve.",
+  reach:
+    "Headquartered in Bangalore, delivering and supporting infrastructure for organizations across industries and geographies.",
+  model: "Strategy, build and run, covered end to end, or co-managed alongside your in-house team.",
+  promise: "Transparent, SLA-backed work and a relationship measured by your uptime, security and growth.",
+  // TODO: populate with confirmed figures before launch; the live site itself hasn't filled these in yet either. Do not ship placeholder or invented metrics.
   metrics: [] as { value: string; label: string }[],
   operatingModel: [
     {
       title: "Assess",
-      description: "Understand your current infrastructure, priorities and constraints.",
+      description: "A free infrastructure assessment mapping your environment and risks.",
     },
     {
       title: "Architect",
-      description: "Design the target infrastructure approach across the relevant service lines.",
+      description: "Vendor-neutral solutions designed around your budget and compliance needs.",
     },
     {
-      title: "Deliver",
-      description: "Implement the approach with a single accountable team, not multiple vendors.",
+      title: "Implement",
+      description: "Deployment with staged cutovers and rollback plans, not a single risky switch.",
     },
     {
       title: "Operate",
-      description: "Run and continuously optimize the infrastructure once it's in place.",
+      description: "Continuous monitoring and optimization once you're live.",
     },
   ],
-  // TODO: confirm exact titles/bios with Zaplio before publishing — names only, sourced from public site.
   leadership: [
-    { name: "Vinodh Veeraraghavan", role: "" },
-    { name: "Raghavendra Gurumurthy", role: "" },
+    {
+      name: "Vinodh Veeraraghavan",
+      role: "Co-Founder & Chief Operating Officer",
+      bio: "Two decades architecting and leading large-scale IT infrastructure and digital transformation programs for enterprises.",
+    },
+    {
+      name: "Raghavendra Gurumurthy",
+      role: "Co-Founder & Chief Technology Officer",
+      bio: "A technologist focused on cloud, cybersecurity and managed operations, turning complex requirements into resilient platforms.",
+    },
   ],
 };
